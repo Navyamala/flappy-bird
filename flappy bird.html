@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="favicon.ico" />
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <title>Flappy Bird Game</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Press Start 2P', cursive;
+    }
+    
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #5fc9f8;
+      overflow: hidden;
+      color: #333;
+      position: relative;
+    }
+    @keyframes scrollBackground {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    
+    .container {
+      z-index: 1;
+      text-align: center;
+      padding: 40px;
+      border-radius: 10px;
+      background: rgba(0, 0, 0, 0.8);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      color: #faff00;
+    }
+    .title {
+      font-size: 3em;
+      color: #faff00;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px #ff5733, 4px 4px #c70039;
+    }
+    .instructions {
+      font-size: 1.1em;
+      color: #fff;
+      margin: 15px 0;
+      max-width: 400px;
+      line-height: 1.5;
+    }
+    .play-button {
+      display: inline-block;
+      padding: 15px 40px;
+      background: #ff5733;
+      color: #fff;
+      font-size: 1.5em;
+      font-weight: bold;
+      text-transform: uppercase;
+      border: 2px solid #c70039;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+      animation: pulse 1s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+    .play-button:hover {
+      background-color: #c70039;
+      transform: scale(1.05);
+    }
+    .play-button:active {
+      background-color: #ff5733;
+      transform: scale(0.95);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="title">Flappy Bird</h1>
+    <p class="instructions">
+      Guide the bird through obstacles! Press the space bar or up arrow to stay afloat. Classic arcade fun awaits!
+    </p>
+    <button class="play-button" onclick="playMusicAndStart()">Start Game</button>
+  </div>
+  <audio id="start-music" src="audio.mp3"></audio>
+  <script>
+    function playMusicAndStart() {
+      const audio = document.getElementById('start-music');
+      audio.play().catch(err => console.error('Audio play error:', err)); 
+      setTimeout(() => {
+        window.location.href = 'game.html';
+      }, 1000); 
+    }
+  </script>
+</body>
+</html>
