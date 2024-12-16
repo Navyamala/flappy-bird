@@ -7,103 +7,120 @@
     <link rel="icon" type="image/png" href="images/favicon.ico"/>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <title>Flappy Bird Game</title>
-     <style>
-    * {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-     }
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    body {
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    overflow-x: hidden;
-    }
-
-    html{
+        body {
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
             overflow-x: hidden;
-    }
+            overflow-y: hidden;
+        }
 
-    .background {
-	height: 100vh;
-	width: 100vw;
-	background: url('./background-img.png') no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    }
+        html {
+            overflow-x: hidden;
+        }
 
-   .bird {
-	height: 70px;
-	width: 90px;
-	position: fixed;
-	top: 40vh;
-	left: 30vw;
-	z-index: 100;
-   }
+        .background {
+            height: 100vh;
+            width: 100vw;
+            background: url('./background-img.png') no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
 
-    .pipe_sprite {
-	position: fixed;
-	top: 40vh;
-	left: 100vw;
-	height: 70vh;
-	width: 4vw;
-	background:radial-gradient(lightgreen 50%, green);
-	border: 5px solid black;
-    }
+        .bird {
+            height: 70px;
+            width: 90px;
+            position: fixed;
+            top: 40vh;
+            left: 30vw;
+            z-index: 100;
+        }
 
-    .message {
-	position: absolute;
-	z-index: 10;
-	color: black;
-	top: 30%;
-	left: 50%;
-	font-size: 2em;
-	transform: translate(-50%, -50%);
-	text-align: center;
-    }
+        .pipe_sprite {
+            position: fixed;
+            top: 40vh;
+            left: 100vw;
+            height: 70vh;
+            width: 4vw;
+            background: radial-gradient(lightgreen 50%, green);
+            border: 5px solid black;
+        }
 
-    .messageStyle{
-	background: white;
-	padding: 30px;
-	box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-	border-radius: 5%;
-    }
+        .message {
+            position: absolute;
+            z-index: 10;
+            color: black;
+            top: 30%;
+            left: 50%;
+            font-size: 2em;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
 
-   .score {
-	position: fixed;
-	z-index: 10;
-	height: 5vh;
-	font-size: 5vh;
-	font-weight: 100;
-	color: white;
-	-webkit-text-stroke-width: 2px;
-    -webkit-text-stroke-color: black;
-	top: 0;
-	left: 0;
-	margin: 10px;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    }
+        .messageStyle {
+            background: white;
+            padding: 30px;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            border-radius: 5%;
+        }
 
-    .score_val {
-	color: gold;
-	font-weight: bold;
-    }
-    
-    @media only screen and (width<500px) {
-    .message{
-		font-size: 50px;
-		top: 50%;
-		white-space: nowrap;
-	}
-	.score{
-		font-size: 8vh;
-	}
-	.pipe_sprite{
-		width: 14vw;
-	}
-}
-     </style>
+        .score {
+            position: fixed;
+            z-index: 10;
+            height: 5vh;
+            font-size: 5vh;
+            font-weight: 100;
+            color: white;
+            -webkit-text-stroke-width: 2px;
+            -webkit-text-stroke-color: black;
+            top: 0;
+            left: 0;
+            margin: 10px;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+
+        .score_val {
+            color: gold;
+            font-weight: bold;
+        }
+
+        /* Responsive Design for Mobile Devices */
+        @media (max-width: 450px) {
+            .background {
+                height: 100vh;
+                width: 100vw;
+                background: url('./background-img.png') no-repeat center center fixed;
+                background-size: cover;
+            }
+
+            .bird {
+                height: 50px;
+                width: 60px;
+                left: 20vw;
+            }
+
+            .pipe_sprite {
+                width: 10vw;
+                height: 50vh;
+            }
+
+            .message {
+                font-size: 1.2em;
+                top: 40%;
+            }
+
+            .score {
+                font-size: 3vh;
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="background"></div>
@@ -125,7 +142,6 @@
     
         sound_background.loop = true; 
     
-        // getting bird element properties
         let bird_props = bird.getBoundingClientRect();
     
         // This method retrieves its dimensions and position relative to the viewport
@@ -253,7 +269,3 @@
     </script>
 </body>
 </html>
-
-
-
-
