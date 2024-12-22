@@ -12,24 +12,18 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Press Start 2P', cursive;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     }
     
     body {
       overflow-x: hidden;
-      overflow-y: hidden;
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
       background: #5fc9f8;
-      overflow: hidden;
       color: #333;
       position: relative;
-    }
-    @keyframes scrollBackground {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
     }
     
     .container {
@@ -41,12 +35,14 @@
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
       color: #faff00;
     }
+    
     .title {
       font-size: 3em;
       color: #faff00;
       margin-bottom: 10px;
       text-shadow: 2px 2px #ff5733, 4px 4px #c70039;
     }
+    
     .instructions {
       font-size: 1.1em;
       color: #fff;
@@ -54,6 +50,7 @@
       max-width: 400px;
       line-height: 1.5;
     }
+    
     .play-button {
       display: inline-block;
       padding: 15px 40px;
@@ -68,17 +65,42 @@
       transition: transform 0.2s ease;
       animation: pulse 1s infinite;
     }
+    
     @keyframes pulse {
       0%, 100% { transform: scale(1); }
       50% { transform: scale(1.05); }
     }
+    
     .play-button:hover {
       background-color: #c70039;
       transform: scale(1.05);
     }
+    
     .play-button:active {
       background-color: #ff5733;
       transform: scale(0.95);
+    }
+    
+    @media (max-width: 450px) {
+      .container {
+        padding: 20px;
+        border-radius: 8px;
+      }
+      
+      .title {
+        font-size: 2.5em;
+        margin-bottom: 10px;
+      }
+      
+      .instructions {
+        font-size: 1em;
+        line-height: 1.4;
+      }
+      
+      .play-button {
+        padding: 10px 30px;
+        font-size: 1.2em;
+      }
     }
   </style>
 </head>
